@@ -10,3 +10,9 @@ This ETL (Extract, Transform, Load) pipeline retrieves data from the SpaceX API,
 - Extract: Fetches data from the SpaceX API and stores it using Airflow's XCom.
 - Transform: Normalizes the JSON data into three separate pandas DataFrames and saves them as CSV files.
 - Load: Creates tables in the PostgreSQL database and loads the transformed data from the CSV files into these tables.
+
+## DAG Tasks
+- Extract Task: Downloads data from the SpaceX API.
+- Transform Task: Converts JSON data into three distinct CSV files.
+- Create Table Tasks: Creates PostgreSQL tables to store the transformed data.
+- Load Tasks: Loads the data from the CSV files into the PostgreSQL tables.
