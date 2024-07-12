@@ -1,5 +1,5 @@
 # ETL pipeline
-![Untitled design](https://github.com/user-attachments/assets/df9cfcc2-a14d-443e-902a-da9363ffe0e6)
+![Untitled design (1)](https://github.com/user-attachments/assets/1d5e3f7b-51a3-4fae-b0e2-acf0b8cd41e2)
 
 ## Overview
 
