@@ -1,0 +1,17 @@
+[2024-07-10T13:32:56.201+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-07-10T13:32:56.949+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: spaceX_project.loading_into_db scheduled__2024-07-09T00:00:00+00:00 [queued]>
+[2024-07-10T13:32:57.038+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: spaceX_project.loading_into_db scheduled__2024-07-09T00:00:00+00:00 [queued]>
+[2024-07-10T13:32:57.040+0000] {taskinstance.py:2306} INFO - Starting attempt 5 of 10
+[2024-07-10T13:32:57.109+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): loading_into_db> on 2024-07-09 00:00:00+00:00
+[2024-07-10T13:32:57.170+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61: DeprecationWarning: This process (pid=1478) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2024-07-10T13:32:57.170+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'spaceX_project', 'loading_into_db', 'scheduled__2024-07-09T00:00:00+00:00', '--job-id', '592', '--raw', '--subdir', 'DAGS_FOLDER/dag.py', '--cfg-path', '/tmp/tmpgtkw50t4']
+[2024-07-10T13:32:57.196+0000] {standard_task_runner.py:91} INFO - Job 592: Subtask loading_into_db
+[2024-07-10T13:32:57.196+0000] {standard_task_runner.py:63} INFO - Started process 1480 to run task
+[2024-07-10T13:34:34.314+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 592 for task loading_into_db ((psycopg2.OperationalError) could not translate host name "postgres" to address: Temporary failure in name resolution
+
+(Background on this error at: https://sqlalche.me/e/14/e3q8); 1480)
+[2024-07-10T13:35:09.549+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 1
+[2024-07-10T13:35:09.622+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-07-10T13:35:09.631+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

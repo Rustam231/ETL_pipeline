@@ -1,0 +1,39 @@
+[2024-07-11T13:14:03.149+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-07-11T13:14:03.190+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: practise.deleting_into_table manual__2024-07-11T13:02:22.213405+00:00 [queued]>
+[2024-07-11T13:14:03.201+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: practise.deleting_into_table manual__2024-07-11T13:02:22.213405+00:00 [queued]>
+[2024-07-11T13:14:03.202+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 6
+[2024-07-11T13:14:03.221+0000] {taskinstance.py:2330} INFO - Executing <Task(PostgresOperator): deleting_into_table> on 2024-07-11 13:02:22.213405+00:00
+[2024-07-11T13:14:03.227+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61: DeprecationWarning: This process (pid=217) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2024-07-11T13:14:03.230+0000] {standard_task_runner.py:63} INFO - Started process 219 to run task
+[2024-07-11T13:14:03.230+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'practise', 'deleting_into_table', 'manual__2024-07-11T13:02:22.213405+00:00', '--job-id', '614', '--raw', '--subdir', 'DAGS_FOLDER/dag2.py', '--cfg-path', '/tmp/tmp1ozs_dx7']
+[2024-07-11T13:14:03.232+0000] {standard_task_runner.py:91} INFO - Job 614: Subtask deleting_into_table
+[2024-07-11T13:14:03.279+0000] {task_command.py:426} INFO - Running <TaskInstance: practise.deleting_into_table manual__2024-07-11T13:02:22.213405+00:00 [running]> on host b646c1147844
+[2024-07-11T13:14:03.381+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='papik' AIRFLOW_CTX_DAG_ID='practise' AIRFLOW_CTX_TASK_ID='deleting_into_table' AIRFLOW_CTX_EXECUTION_DATE='2024-07-11T13:02:22.213405+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-07-11T13:02:22.213405+00:00'
+[2024-07-11T13:14:03.385+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-07-11T13:14:03.416+0000] {sql.py:276} INFO - Executing: 
+            
+[2024-07-11T13:14:03.433+0000] {base.py:84} INFO - Using connection ID 'cosmos' for task execution.
+[2024-07-11T13:14:03.453+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-07-11T13:14:03.455+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 401, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/providers/common/sql/operators/sql.py", line 282, in execute
+    output = hook.run(
+             ^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/providers/common/sql/hooks/sql.py", line 429, in run
+    raise ValueError("List of SQL statements is empty")
+ValueError: List of SQL statements is empty
+[2024-07-11T13:14:03.470+0000] {taskinstance.py:1206} INFO - Marking task as UP_FOR_RETRY. dag_id=practise, task_id=deleting_into_table, run_id=manual__2024-07-11T13:02:22.213405+00:00, execution_date=20240711T130222, start_date=20240711T131403, end_date=20240711T131403
+[2024-07-11T13:14:03.484+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 614 for task deleting_into_table (List of SQL statements is empty; 219)
+[2024-07-11T13:14:03.532+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 1
+[2024-07-11T13:14:03.553+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

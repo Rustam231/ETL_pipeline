@@ -1,0 +1,58 @@
+[2024-07-11T13:06:04.583+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-07-11T13:06:04.632+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: practise.creating_table manual__2024-07-11T13:02:22.213405+00:00 [queued]>
+[2024-07-11T13:06:04.645+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: practise.creating_table manual__2024-07-11T13:02:22.213405+00:00 [queued]>
+[2024-07-11T13:06:04.646+0000] {taskinstance.py:2306} INFO - Starting attempt 2 of 7
+[2024-07-11T13:06:04.664+0000] {taskinstance.py:2330} INFO - Executing <Task(PostgresOperator): creating_table> on 2024-07-11 13:02:22.213405+00:00
+[2024-07-11T13:06:04.671+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61: DeprecationWarning: This process (pid=157) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2024-07-11T13:06:04.674+0000] {standard_task_runner.py:63} INFO - Started process 158 to run task
+[2024-07-11T13:06:04.674+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'practise', 'creating_table', 'manual__2024-07-11T13:02:22.213405+00:00', '--job-id', '610', '--raw', '--subdir', 'DAGS_FOLDER/dag2.py', '--cfg-path', '/tmp/tmpmxjwipfj']
+[2024-07-11T13:06:04.676+0000] {standard_task_runner.py:91} INFO - Job 610: Subtask creating_table
+[2024-07-11T13:06:04.731+0000] {task_command.py:426} INFO - Running <TaskInstance: practise.creating_table manual__2024-07-11T13:02:22.213405+00:00 [running]> on host b646c1147844
+[2024-07-11T13:06:04.829+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='papik' AIRFLOW_CTX_DAG_ID='practise' AIRFLOW_CTX_TASK_ID='creating_table' AIRFLOW_CTX_EXECUTION_DATE='2024-07-11T13:02:22.213405+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-07-11T13:02:22.213405+00:00'
+[2024-07-11T13:06:04.831+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-07-11T13:06:04.865+0000] {sql.py:276} INFO - Executing: 
+            CREATE TABLE tab(
+                id INT PRIMARY KEY,
+                txt TEXT
+            );
+        
+[2024-07-11T13:06:04.877+0000] {base.py:84} INFO - Using connection ID 'cosmos' for task execution.
+[2024-07-11T13:06:04.894+0000] {base.py:84} INFO - Using connection ID 'cosmos' for task execution.
+[2024-07-11T13:06:04.908+0000] {sql.py:487} INFO - Running statement: 
+            CREATE TABLE tab(
+                id INT PRIMARY KEY,
+                txt TEXT
+            );
+        , parameters: None
+[2024-07-11T13:06:04.911+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-07-11T13:06:04.912+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 401, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/providers/common/sql/operators/sql.py", line 282, in execute
+    output = hook.run(
+             ^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/providers/common/sql/hooks/sql.py", line 435, in run
+    self._run_command(cur, sql_statement, parameters)
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/providers/common/sql/hooks/sql.py", line 492, in _run_command
+    cur.execute(sql_statement)
+psycopg2.errors.DuplicateTable: relation "tab" already exists
+
+[2024-07-11T13:06:04.931+0000] {taskinstance.py:1206} INFO - Marking task as UP_FOR_RETRY. dag_id=practise, task_id=creating_table, run_id=manual__2024-07-11T13:02:22.213405+00:00, execution_date=20240711T130222, start_date=20240711T130604, end_date=20240711T130604
+[2024-07-11T13:06:04.947+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 610 for task creating_table (relation "tab" already exists
+; 158)
+[2024-07-11T13:06:04.970+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 1
+[2024-07-11T13:06:04.983+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/models/baseoperator.py:1297: AirflowProviderDeprecationWarning: Call to deprecated class PostgresOperator. (Please use `***.providers.common.sql.operators.sql.SQLExecuteQueryOperator`.Also, you can provide `hook_params={'schema': <database>}`.)
+  result = cls.__new__(cls)
+
+[2024-07-11T13:06:05.006+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-07-11T13:06:05.009+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

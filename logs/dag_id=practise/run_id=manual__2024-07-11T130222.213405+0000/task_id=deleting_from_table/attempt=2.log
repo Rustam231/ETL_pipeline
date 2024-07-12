@@ -1,0 +1,31 @@
+[2024-07-11T13:16:23.671+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-07-11T13:16:23.699+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: practise.deleting_from_table manual__2024-07-11T13:02:22.213405+00:00 [queued]>
+[2024-07-11T13:16:23.710+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: practise.deleting_from_table manual__2024-07-11T13:02:22.213405+00:00 [queued]>
+[2024-07-11T13:16:23.711+0000] {taskinstance.py:2306} INFO - Starting attempt 2 of 7
+[2024-07-11T13:16:23.729+0000] {taskinstance.py:2330} INFO - Executing <Task(PostgresOperator): deleting_from_table> on 2024-07-11 13:02:22.213405+00:00
+[2024-07-11T13:16:23.735+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61: DeprecationWarning: This process (pid=251) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2024-07-11T13:16:23.737+0000] {standard_task_runner.py:63} INFO - Started process 252 to run task
+[2024-07-11T13:16:23.738+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'practise', 'deleting_from_table', 'manual__2024-07-11T13:02:22.213405+00:00', '--job-id', '621', '--raw', '--subdir', 'DAGS_FOLDER/dag2.py', '--cfg-path', '/tmp/tmpsw40kvsa']
+[2024-07-11T13:16:23.740+0000] {standard_task_runner.py:91} INFO - Job 621: Subtask deleting_from_table
+[2024-07-11T13:16:23.799+0000] {task_command.py:426} INFO - Running <TaskInstance: practise.deleting_from_table manual__2024-07-11T13:02:22.213405+00:00 [running]> on host b646c1147844
+[2024-07-11T13:16:23.895+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='papik' AIRFLOW_CTX_DAG_ID='practise' AIRFLOW_CTX_TASK_ID='deleting_from_table' AIRFLOW_CTX_EXECUTION_DATE='2024-07-11T13:02:22.213405+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-07-11T13:02:22.213405+00:00'
+[2024-07-11T13:16:23.896+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-07-11T13:16:23.910+0000] {sql.py:276} INFO - Executing: 
+            DELETE FROM tab;    
+        
+[2024-07-11T13:16:23.919+0000] {base.py:84} INFO - Using connection ID 'cosmos' for task execution.
+[2024-07-11T13:16:23.930+0000] {base.py:84} INFO - Using connection ID 'cosmos' for task execution.
+[2024-07-11T13:16:23.934+0000] {sql.py:487} INFO - Running statement: 
+            DELETE FROM tab;    
+        , parameters: None
+[2024-07-11T13:16:23.937+0000] {sql.py:496} INFO - Rows affected: 3
+[2024-07-11T13:16:23.940+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-07-11T13:16:23.950+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=practise, task_id=deleting_from_table, run_id=manual__2024-07-11T13:02:22.213405+00:00, execution_date=20240711T130222, start_date=20240711T131623, end_date=20240711T131623
+[2024-07-11T13:16:23.994+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2024-07-11T13:16:24.004+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/models/baseoperator.py:1297: AirflowProviderDeprecationWarning: Call to deprecated class PostgresOperator. (Please use `***.providers.common.sql.operators.sql.SQLExecuteQueryOperator`.Also, you can provide `hook_params={'schema': <database>}`.)
+  result = cls.__new__(cls)
+
+[2024-07-11T13:16:24.017+0000] {taskinstance.py:3503} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2024-07-11T13:16:24.020+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

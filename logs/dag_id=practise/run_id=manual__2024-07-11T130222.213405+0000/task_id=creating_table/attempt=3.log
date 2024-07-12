@@ -1,0 +1,36 @@
+[2024-07-11T13:06:30.125+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-07-11T13:06:30.169+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: practise.creating_table manual__2024-07-11T13:02:22.213405+00:00 [queued]>
+[2024-07-11T13:06:30.182+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: practise.creating_table manual__2024-07-11T13:02:22.213405+00:00 [queued]>
+[2024-07-11T13:06:30.183+0000] {taskinstance.py:2306} INFO - Starting attempt 3 of 7
+[2024-07-11T13:06:30.202+0000] {taskinstance.py:2330} INFO - Executing <Task(PostgresOperator): creating_table> on 2024-07-11 13:02:22.213405+00:00
+[2024-07-11T13:06:30.210+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61: DeprecationWarning: This process (pid=166) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2024-07-11T13:06:30.212+0000] {standard_task_runner.py:63} INFO - Started process 167 to run task
+[2024-07-11T13:06:30.212+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'practise', 'creating_table', 'manual__2024-07-11T13:02:22.213405+00:00', '--job-id', '611', '--raw', '--subdir', 'DAGS_FOLDER/dag2.py', '--cfg-path', '/tmp/tmpca3cjhu8']
+[2024-07-11T13:06:30.215+0000] {standard_task_runner.py:91} INFO - Job 611: Subtask creating_table
+[2024-07-11T13:06:30.273+0000] {task_command.py:426} INFO - Running <TaskInstance: practise.creating_table manual__2024-07-11T13:02:22.213405+00:00 [running]> on host b646c1147844
+[2024-07-11T13:06:30.377+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='papik' AIRFLOW_CTX_DAG_ID='practise' AIRFLOW_CTX_TASK_ID='creating_table' AIRFLOW_CTX_EXECUTION_DATE='2024-07-11T13:02:22.213405+00:00' AIRFLOW_CTX_TRY_NUMBER='3' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-07-11T13:02:22.213405+00:00'
+[2024-07-11T13:06:30.378+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-07-11T13:06:30.401+0000] {sql.py:276} INFO - Executing: 
+            CREATE TABLE IF NOT EXISTS tab(
+                id INT PRIMARY KEY,
+                txt TEXT
+            );
+        
+[2024-07-11T13:06:30.410+0000] {base.py:84} INFO - Using connection ID 'cosmos' for task execution.
+[2024-07-11T13:06:30.421+0000] {base.py:84} INFO - Using connection ID 'cosmos' for task execution.
+[2024-07-11T13:06:30.428+0000] {sql.py:487} INFO - Running statement: 
+            CREATE TABLE IF NOT EXISTS tab(
+                id INT PRIMARY KEY,
+                txt TEXT
+            );
+        , parameters: None
+[2024-07-11T13:06:30.430+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-07-11T13:06:30.440+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=practise, task_id=creating_table, run_id=manual__2024-07-11T13:02:22.213405+00:00, execution_date=20240711T130222, start_date=20240711T130630, end_date=20240711T130630
+[2024-07-11T13:06:30.467+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2024-07-11T13:06:30.478+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/models/baseoperator.py:1297: AirflowProviderDeprecationWarning: Call to deprecated class PostgresOperator. (Please use `***.providers.common.sql.operators.sql.SQLExecuteQueryOperator`.Also, you can provide `hook_params={'schema': <database>}`.)
+  result = cls.__new__(cls)
+
+[2024-07-11T13:06:30.492+0000] {taskinstance.py:3503} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2024-07-11T13:06:30.494+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

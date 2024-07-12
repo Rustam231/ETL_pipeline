@@ -1,0 +1,33 @@
+{
+  "sqltools.connections": [
+    {
+      "previewLimit": 50,
+      "server": "localhost",
+      "port": 5432,
+      "driver": "PostgreSQL",
+      "name": "postgres",
+      "username": "postgres",
+      "database": "postgres"
+    },
+    {
+      "previewLimit": 50,
+      "server": "localhost",
+      "port": 5432,
+      "driver": "PostgreSQL",
+      "name": "airflow",
+      "database": "airflow",
+      "username": "airflow",
+      "password": "airflow"
+    },
+    {
+      "previewLimit": 50,
+      "server": "localhost",
+      "port": 5432,
+      "driver": "PostgreSQL",
+      "name": "spacex",
+      "database": "spacex",
+      "username": "airflow",
+      "password": "airflow"
+    }
+  ]
+}

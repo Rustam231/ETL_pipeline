@@ -1,0 +1,1 @@
+[2024-07-11T13:15:01.029+0000] {scheduler_job_runner.py:769} ERROR - Executor reports task instance <TaskInstance: practise.inserting_into_table manual__2024-07-11T13:02:22.213405+00:00 [queued]> finished (success) although the task says it's queued. (Info: None) Was the task killed externally?

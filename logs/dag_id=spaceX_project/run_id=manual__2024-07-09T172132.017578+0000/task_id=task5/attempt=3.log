@@ -1,0 +1,37 @@
+[2024-07-09T17:24:30.849+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-07-09T17:24:30.880+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: spaceX_project.task5 manual__2024-07-09T17:21:32.017578+00:00 [queued]>
+[2024-07-09T17:24:30.891+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: spaceX_project.task5 manual__2024-07-09T17:21:32.017578+00:00 [queued]>
+[2024-07-09T17:24:30.892+0000] {taskinstance.py:2306} INFO - Starting attempt 3 of 8
+[2024-07-09T17:24:30.908+0000] {taskinstance.py:2330} INFO - Executing <Task(PostgresOperator): task5> on 2024-07-09 17:21:32.017578+00:00
+[2024-07-09T17:24:30.914+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61: DeprecationWarning: This process (pid=445) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2024-07-09T17:24:30.916+0000] {standard_task_runner.py:63} INFO - Started process 447 to run task
+[2024-07-09T17:24:30.916+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'spaceX_project', 'task5', 'manual__2024-07-09T17:21:32.017578+00:00', '--job-id', '546', '--raw', '--subdir', 'DAGS_FOLDER/dag.py', '--cfg-path', '/tmp/tmpfyv9cg1n']
+[2024-07-09T17:24:30.920+0000] {standard_task_runner.py:91} INFO - Job 546: Subtask task5
+[2024-07-09T17:24:30.976+0000] {task_command.py:426} INFO - Running <TaskInstance: spaceX_project.task5 manual__2024-07-09T17:21:32.017578+00:00 [running]> on host f565c82ff71d
+[2024-07-09T17:24:31.081+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='rustam' AIRFLOW_CTX_DAG_ID='spaceX_project' AIRFLOW_CTX_TASK_ID='task5' AIRFLOW_CTX_EXECUTION_DATE='2024-07-09T17:21:32.017578+00:00' AIRFLOW_CTX_TRY_NUMBER='3' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-07-09T17:21:32.017578+00:00'
+[2024-07-09T17:24:31.083+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-07-09T17:24:31.098+0000] {sql.py:276} INFO - Executing: 
+            CREATE TABLE IF NOT EXISTS output(
+                id INT PRIMARY KEY,    
+                name TEXT,
+                active BOOLEAN,
+                stages INT
+            );
+        
+[2024-07-09T17:24:31.110+0000] {base.py:84} INFO - Using connection ID 'cosmos' for task execution.
+[2024-07-09T17:24:31.122+0000] {base.py:84} INFO - Using connection ID 'cosmos' for task execution.
+[2024-07-09T17:24:31.126+0000] {sql.py:487} INFO - Running statement: 
+            CREATE TABLE IF NOT EXISTS output(
+                id INT PRIMARY KEY,    
+                name TEXT,
+                active BOOLEAN,
+                stages INT
+            );
+        , parameters: None
+[2024-07-09T17:24:31.128+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-07-09T17:24:31.138+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=spaceX_project, task_id=task5, run_id=manual__2024-07-09T17:21:32.017578+00:00, execution_date=20240709T172132, start_date=20240709T172430, end_date=20240709T172431
+[2024-07-09T17:24:31.171+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2024-07-09T17:24:31.188+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-07-09T17:24:31.191+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
